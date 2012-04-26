@@ -1,0 +1,7 @@
+In April of 2012 I discovered old files from my college years in my Dropbox files. For prosperity's sake, I have decided to host this code in a public repository on Github.
+
+The code is entirely my own. It consists of a C based framework for the AVR micro controller, specifically the ATMEGA644p. It was attached, via the SDK500, to a small robot body. This, in turn, controlled various sensors, motors, and drive systems on the robot body.
+
+The python portion of the code was designed to be multi-agent, but never got past testing or use as a single agent system. This would run on a computer, and would communicate wirelessly to the robot via bluetooth (or any serial compatible port) controlling it.
+
+By the end of the course (a mere 7 weeks), the code would communicate between the robot and MATLAB via Python and the C frameworks, causing the robot to map the room using an infrared sensor. MATLAB would then draw a large map and radar system for us to "see" as the robot.
