@@ -1,0 +1,27 @@
+import serial
+from Commands import *
+
+class Actuator:
+	
+	serialConnection = None
+	Command = None
+	hasPID = False
+
+	Position = None
+	Velocity = None
+
+	#Control values
+	Kp = None
+	Ki = None
+	Kd = None
+	
+
+	def __init__(self, connectionInstance):
+		self.serialConnection = connectionInstance
+
+	def setPID(self, KpInstance, KiInstance = 0, KdInstance = 0):
+		global setPID
+		self.serialConnection.write(setPID)
+		self.serialConnection.write(chr(KpInstance))
+		self.serialConnection.write(chr(KiInstance))
+		self.serialConnection.write(chr(KdInstnace))

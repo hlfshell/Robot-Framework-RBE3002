@@ -1,0 +1,922 @@
+
+Framework_Robot.Beta.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000e  00800100  000007e8  0000085c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000007e8  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000010c  0080010e  000007f6  0000086a  2**0
+                  ALLOC
+  3 .stab         000006b4  00000000  00000000  0000086c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000054  00000000  00000000  00000f20  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
+   4:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+   8:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+   c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  10:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  14:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  18:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  1c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  20:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  24:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  28:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  2c:	0c 94 12 03 	jmp	0x624	; 0x624 <__vector_11>
+  30:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  34:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  38:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  3c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  40:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  44:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  48:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  4c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  50:	0c 94 b7 03 	jmp	0x76e	; 0x76e <__vector_20>
+  54:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  58:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  5c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  60:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  64:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  68:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  6c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  70:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  74:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  78:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+
+0000007c <__ctors_end>:
+  7c:	11 24       	eor	r1, r1
+  7e:	1f be       	out	0x3f, r1	; 63
+  80:	cf ef       	ldi	r28, 0xFF	; 255
+  82:	d0 e1       	ldi	r29, 0x10	; 16
+  84:	de bf       	out	0x3e, r29	; 62
+  86:	cd bf       	out	0x3d, r28	; 61
+
+00000088 <__do_copy_data>:
+  88:	11 e0       	ldi	r17, 0x01	; 1
+  8a:	a0 e0       	ldi	r26, 0x00	; 0
+  8c:	b1 e0       	ldi	r27, 0x01	; 1
+  8e:	e8 ee       	ldi	r30, 0xE8	; 232
+  90:	f7 e0       	ldi	r31, 0x07	; 7
+  92:	02 c0       	rjmp	.+4      	; 0x98 <.do_copy_data_start>
+
+00000094 <.do_copy_data_loop>:
+  94:	05 90       	lpm	r0, Z+
+  96:	0d 92       	st	X+, r0
+
+00000098 <.do_copy_data_start>:
+  98:	ae 30       	cpi	r26, 0x0E	; 14
+  9a:	b1 07       	cpc	r27, r17
+  9c:	d9 f7       	brne	.-10     	; 0x94 <.do_copy_data_loop>
+
+0000009e <__do_clear_bss>:
+  9e:	12 e0       	ldi	r17, 0x02	; 2
+  a0:	ae e0       	ldi	r26, 0x0E	; 14
+  a2:	b1 e0       	ldi	r27, 0x01	; 1
+  a4:	01 c0       	rjmp	.+2      	; 0xa8 <.do_clear_bss_start>
+
+000000a6 <.do_clear_bss_loop>:
+  a6:	1d 92       	st	X+, r1
+
+000000a8 <.do_clear_bss_start>:
+  a8:	aa 31       	cpi	r26, 0x1A	; 26
+  aa:	b1 07       	cpc	r27, r17
+  ac:	e1 f7       	brne	.-8      	; 0xa6 <.do_clear_bss_loop>
+  ae:	0e 94 1c 03 	call	0x638	; 0x638 <main>
+  b2:	0c 94 f2 03 	jmp	0x7e4	; 0x7e4 <_exit>
+
+000000b6 <__bad_interrupt>:
+  b6:	0c 94 00 00 	jmp	0	; 0x0 <__heap_end>
+
+000000ba <InitializeA2D>:
+  ba:	ea e7       	ldi	r30, 0x7A	; 122
+  bc:	f0 e0       	ldi	r31, 0x00	; 0
+  be:	80 81       	ld	r24, Z
+  c0:	8f 7d       	andi	r24, 0xDF	; 223
+  c2:	80 83       	st	Z, r24
+  c4:	80 81       	ld	r24, Z
+  c6:	83 68       	ori	r24, 0x83	; 131
+  c8:	80 83       	st	Z, r24
+  ca:	80 81       	ld	r24, Z
+  cc:	8b 7f       	andi	r24, 0xFB	; 251
+  ce:	80 83       	st	Z, r24
+  d0:	08 95       	ret
+
+000000d2 <get_adc>:
+  d2:	88 30       	cpi	r24, 0x08	; 8
+  d4:	18 f0       	brcs	.+6      	; 0xdc <get_adc+0xa>
+  d6:	20 e0       	ldi	r18, 0x00	; 0
+  d8:	30 e0       	ldi	r19, 0x00	; 0
+  da:	1a c0       	rjmp	.+52     	; 0x110 <get_adc+0x3e>
+  dc:	80 93 7c 00 	sts	0x007C, r24
+  e0:	80 91 7a 00 	lds	r24, 0x007A
+  e4:	80 64       	ori	r24, 0x40	; 64
+  e6:	80 93 7a 00 	sts	0x007A, r24
+  ea:	80 91 7a 00 	lds	r24, 0x007A
+  ee:	84 ff       	sbrs	r24, 4
+  f0:	fc cf       	rjmp	.-8      	; 0xea <get_adc+0x18>
+  f2:	30 91 78 00 	lds	r19, 0x0078
+  f6:	20 91 79 00 	lds	r18, 0x0079
+  fa:	80 91 7a 00 	lds	r24, 0x007A
+  fe:	80 61       	ori	r24, 0x10	; 16
+ 100:	80 93 7a 00 	sts	0x007A, r24
+ 104:	92 2f       	mov	r25, r18
+ 106:	80 e0       	ldi	r24, 0x00	; 0
+ 108:	ac 01       	movw	r20, r24
+ 10a:	43 0f       	add	r20, r19
+ 10c:	51 1d       	adc	r21, r1
+ 10e:	9a 01       	movw	r18, r20
+ 110:	c9 01       	movw	r24, r18
+ 112:	08 95       	ret
+
+00000114 <requestADCchannel>:
+ 114:	cf 93       	push	r28
+ 116:	df 93       	push	r29
+ 118:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 11c:	18 16       	cp	r1, r24
+ 11e:	19 06       	cpc	r1, r25
+ 120:	dc f7       	brge	.-10     	; 0x118 <requestADCchannel+0x4>
+ 122:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 126:	88 30       	cpi	r24, 0x08	; 8
+ 128:	18 f0       	brcs	.+6      	; 0x130 <requestADCchannel+0x1c>
+ 12a:	c0 e0       	ldi	r28, 0x00	; 0
+ 12c:	d0 e0       	ldi	r29, 0x00	; 0
+ 12e:	19 c0       	rjmp	.+50     	; 0x162 <requestADCchannel+0x4e>
+ 130:	80 93 7c 00 	sts	0x007C, r24
+ 134:	80 91 7a 00 	lds	r24, 0x007A
+ 138:	80 64       	ori	r24, 0x40	; 64
+ 13a:	80 93 7a 00 	sts	0x007A, r24
+ 13e:	80 91 7a 00 	lds	r24, 0x007A
+ 142:	84 ff       	sbrs	r24, 4
+ 144:	fc cf       	rjmp	.-8      	; 0x13e <requestADCchannel+0x2a>
+ 146:	30 91 78 00 	lds	r19, 0x0078
+ 14a:	20 91 79 00 	lds	r18, 0x0079
+ 14e:	80 91 7a 00 	lds	r24, 0x007A
+ 152:	80 61       	ori	r24, 0x10	; 16
+ 154:	80 93 7a 00 	sts	0x007A, r24
+ 158:	92 2f       	mov	r25, r18
+ 15a:	80 e0       	ldi	r24, 0x00	; 0
+ 15c:	ec 01       	movw	r28, r24
+ 15e:	c3 0f       	add	r28, r19
+ 160:	d1 1d       	adc	r29, r1
+ 162:	8c 2f       	mov	r24, r28
+ 164:	0e 94 3c 03 	call	0x678	; 0x678 <serialTx>
+ 168:	8d 2f       	mov	r24, r29
+ 16a:	0e 94 3c 03 	call	0x678	; 0x678 <serialTx>
+ 16e:	df 91       	pop	r29
+ 170:	cf 91       	pop	r28
+ 172:	08 95       	ret
+
+00000174 <commandMenu>:
+ 174:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 178:	88 23       	and	r24, r24
+ 17a:	19 f4       	brne	.+6      	; 0x182 <commandMenu+0xe>
+ 17c:	0e 94 03 01 	call	0x206	; 0x206 <setID>
+ 180:	08 95       	ret
+ 182:	81 30       	cpi	r24, 0x01	; 1
+ 184:	19 f4       	brne	.+6      	; 0x18c <commandMenu+0x18>
+ 186:	0e 94 fe 00 	call	0x1fc	; 0x1fc <requestID>
+ 18a:	08 95       	ret
+ 18c:	82 30       	cpi	r24, 0x02	; 2
+ 18e:	19 f4       	brne	.+6      	; 0x196 <commandMenu+0x22>
+ 190:	0e 94 0e 01 	call	0x21c	; 0x21c <InitializeRobot>
+ 194:	08 95       	ret
+ 196:	83 30       	cpi	r24, 0x03	; 3
+ 198:	19 f4       	brne	.+6      	; 0x1a0 <commandMenu+0x2c>
+ 19a:	0e 94 0d 01 	call	0x21a	; 0x21a <reset>
+ 19e:	08 95       	ret
+ 1a0:	80 3a       	cpi	r24, 0xA0	; 160
+ 1a2:	59 f0       	breq	.+22     	; 0x1ba <commandMenu+0x46>
+ 1a4:	81 3a       	cpi	r24, 0xA1	; 161
+ 1a6:	19 f4       	brne	.+6      	; 0x1ae <commandMenu+0x3a>
+ 1a8:	0e 94 8a 00 	call	0x114	; 0x114 <requestADCchannel>
+ 1ac:	08 95       	ret
+ 1ae:	80 3c       	cpi	r24, 0xC0	; 192
+ 1b0:	21 f0       	breq	.+8      	; 0x1ba <commandMenu+0x46>
+ 1b2:	81 3c       	cpi	r24, 0xC1	; 193
+ 1b4:	11 f0       	breq	.+4      	; 0x1ba <commandMenu+0x46>
+ 1b6:	83 3c       	cpi	r24, 0xC3	; 195
+ 1b8:	19 f4       	brne	.+6      	; 0x1c0 <commandMenu+0x4c>
+ 1ba:	0e 94 46 02 	call	0x48c	; 0x48c <requestPinValue>
+ 1be:	08 95       	ret
+ 1c0:	86 3c       	cpi	r24, 0xC6	; 198
+ 1c2:	19 f4       	brne	.+6      	; 0x1ca <commandMenu+0x56>
+ 1c4:	0e 94 f1 02 	call	0x5e2	; 0x5e2 <requestSendStepperTo>
+ 1c8:	08 95       	ret
+ 1ca:	81 3d       	cpi	r24, 0xD1	; 209
+ 1cc:	19 f4       	brne	.+6      	; 0x1d4 <commandMenu+0x60>
+ 1ce:	0e 94 b5 01 	call	0x36a	; 0x36a <setLeftMotorForward>
+ 1d2:	08 95       	ret
+ 1d4:	82 3d       	cpi	r24, 0xD2	; 210
+ 1d6:	19 f4       	brne	.+6      	; 0x1de <commandMenu+0x6a>
+ 1d8:	0e 94 a0 01 	call	0x340	; 0x340 <setLeftMotorReverse>
+ 1dc:	08 95       	ret
+ 1de:	83 3d       	cpi	r24, 0xD3	; 211
+ 1e0:	19 f4       	brne	.+6      	; 0x1e8 <commandMenu+0x74>
+ 1e2:	0e 94 90 01 	call	0x320	; 0x320 <setRightMotorForward>
+ 1e6:	08 95       	ret
+ 1e8:	84 3d       	cpi	r24, 0xD4	; 212
+ 1ea:	19 f4       	brne	.+6      	; 0x1f2 <commandMenu+0x7e>
+ 1ec:	0e 94 7b 01 	call	0x2f6	; 0x2f6 <setRightMotorReverse>
+ 1f0:	08 95       	ret
+ 1f2:	80 3d       	cpi	r24, 0xD0	; 208
+ 1f4:	11 f4       	brne	.+4      	; 0x1fa <commandMenu+0x86>
+ 1f6:	0e 94 74 02 	call	0x4e8	; 0x4e8 <requestSetServo>
+ 1fa:	08 95       	ret
+
+000001fc <requestID>:
+ 1fc:	80 91 18 01 	lds	r24, 0x0118
+ 200:	0e 94 3c 03 	call	0x678	; 0x678 <serialTx>
+ 204:	08 95       	ret
+
+00000206 <setID>:
+ 206:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 20a:	18 16       	cp	r1, r24
+ 20c:	19 06       	cpc	r1, r25
+ 20e:	dc f7       	brge	.-10     	; 0x206 <setID>
+ 210:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 214:	80 93 18 01 	sts	0x0118, r24
+ 218:	08 95       	ret
+
+0000021a <reset>:
+ 21a:	08 95       	ret
+
+0000021c <InitializeRobot>:
+ 21c:	81 e0       	ldi	r24, 0x01	; 1
+ 21e:	80 93 0e 01 	sts	0x010E, r24
+ 222:	88 ec       	ldi	r24, 0xC8	; 200
+ 224:	90 e0       	ldi	r25, 0x00	; 0
+ 226:	01 97       	sbiw	r24, 0x01	; 1
+ 228:	f1 f7       	brne	.-4      	; 0x226 <InitializeRobot+0xa>
+ 22a:	8f ef       	ldi	r24, 0xFF	; 255
+ 22c:	0e 94 3c 03 	call	0x678	; 0x678 <serialTx>
+ 230:	08 95       	ret
+
+00000232 <InitializeHardware>:
+ 232:	f8 94       	cli
+ 234:	0e 94 c5 01 	call	0x38a	; 0x38a <InitializeInputPins>
+ 238:	0e 94 59 02 	call	0x4b2	; 0x4b2 <initializePWM>
+ 23c:	0e 94 30 03 	call	0x660	; 0x660 <InitializeSerial>
+ 240:	0e 94 5d 00 	call	0xba	; 0xba <InitializeA2D>
+ 244:	0e 94 30 01 	call	0x260	; 0x260 <SPIInit>
+ 248:	78 94       	sei
+ 24a:	60 e0       	ldi	r22, 0x00	; 0
+ 24c:	70 e0       	ldi	r23, 0x00	; 0
+ 24e:	80 e0       	ldi	r24, 0x00	; 0
+ 250:	0e 94 5d 01 	call	0x2ba	; 0x2ba <motorControl>
+ 254:	60 e0       	ldi	r22, 0x00	; 0
+ 256:	70 e0       	ldi	r23, 0x00	; 0
+ 258:	81 e0       	ldi	r24, 0x01	; 1
+ 25a:	0e 94 5d 01 	call	0x2ba	; 0x2ba <motorControl>
+ 25e:	08 95       	ret
+
+00000260 <SPIInit>:
+ 260:	80 eb       	ldi	r24, 0xB0	; 176
+ 262:	84 b9       	out	0x04, r24	; 4
+ 264:	2c 9a       	sbi	0x05, 4	; 5
+ 266:	87 e5       	ldi	r24, 0x57	; 87
+ 268:	8c bd       	out	0x2c, r24	; 44
+ 26a:	08 95       	ret
+
+0000026c <SPITx>:
+ 26c:	2c 98       	cbi	0x05, 4	; 5
+ 26e:	8e bd       	out	0x2e, r24	; 46
+ 270:	0d b4       	in	r0, 0x2d	; 45
+ 272:	07 fe       	sbrs	r0, 7
+ 274:	fd cf       	rjmp	.-6      	; 0x270 <SPITx+0x4>
+ 276:	6e bd       	out	0x2e, r22	; 46
+ 278:	0d b4       	in	r0, 0x2d	; 45
+ 27a:	07 fe       	sbrs	r0, 7
+ 27c:	fd cf       	rjmp	.-6      	; 0x278 <SPITx+0xc>
+ 27e:	2c 9a       	sbi	0x05, 4	; 5
+ 280:	08 95       	ret
+
+00000282 <dacControl>:
+ 282:	20 e1       	ldi	r18, 0x10	; 16
+ 284:	80 30       	cpi	r24, 0x00	; 0
+ 286:	92 07       	cpc	r25, r18
+ 288:	10 f0       	brcs	.+4      	; 0x28e <dacControl+0xc>
+ 28a:	8f ef       	ldi	r24, 0xFF	; 255
+ 28c:	9f e0       	ldi	r25, 0x0F	; 15
+ 28e:	66 23       	and	r22, r22
+ 290:	19 f4       	brne	.+6      	; 0x298 <dacControl+0x16>
+ 292:	29 2f       	mov	r18, r25
+ 294:	20 6b       	ori	r18, 0xB0	; 176
+ 296:	06 c0       	rjmp	.+12     	; 0x2a4 <dacControl+0x22>
+ 298:	61 30       	cpi	r22, 0x01	; 1
+ 29a:	11 f0       	breq	.+4      	; 0x2a0 <dacControl+0x1e>
+ 29c:	20 e0       	ldi	r18, 0x00	; 0
+ 29e:	02 c0       	rjmp	.+4      	; 0x2a4 <dacControl+0x22>
+ 2a0:	29 2f       	mov	r18, r25
+ 2a2:	20 69       	ori	r18, 0x90	; 144
+ 2a4:	2c 98       	cbi	0x05, 4	; 5
+ 2a6:	2e bd       	out	0x2e, r18	; 46
+ 2a8:	0d b4       	in	r0, 0x2d	; 45
+ 2aa:	07 fe       	sbrs	r0, 7
+ 2ac:	fd cf       	rjmp	.-6      	; 0x2a8 <dacControl+0x26>
+ 2ae:	8e bd       	out	0x2e, r24	; 46
+ 2b0:	0d b4       	in	r0, 0x2d	; 45
+ 2b2:	07 fe       	sbrs	r0, 7
+ 2b4:	fd cf       	rjmp	.-6      	; 0x2b0 <dacControl+0x2e>
+ 2b6:	2c 9a       	sbi	0x05, 4	; 5
+ 2b8:	08 95       	ret
+
+000002ba <motorControl>:
+ 2ba:	28 2f       	mov	r18, r24
+ 2bc:	88 e0       	ldi	r24, 0x08	; 8
+ 2be:	61 30       	cpi	r22, 0x01	; 1
+ 2c0:	78 07       	cpc	r23, r24
+ 2c2:	1c f0       	brlt	.+6      	; 0x2ca <motorControl+0x10>
+ 2c4:	60 e0       	ldi	r22, 0x00	; 0
+ 2c6:	78 e0       	ldi	r23, 0x08	; 8
+ 2c8:	0f c0       	rjmp	.+30     	; 0x2e8 <motorControl+0x2e>
+ 2ca:	88 ef       	ldi	r24, 0xF8	; 248
+ 2cc:	60 30       	cpi	r22, 0x00	; 0
+ 2ce:	78 07       	cpc	r23, r24
+ 2d0:	1c f4       	brge	.+6      	; 0x2d8 <motorControl+0x1e>
+ 2d2:	60 e0       	ldi	r22, 0x00	; 0
+ 2d4:	78 ef       	ldi	r23, 0xF8	; 248
+ 2d6:	08 c0       	rjmp	.+16     	; 0x2e8 <motorControl+0x2e>
+ 2d8:	77 fd       	sbrc	r23, 7
+ 2da:	06 c0       	rjmp	.+12     	; 0x2e8 <motorControl+0x2e>
+ 2dc:	61 15       	cp	r22, r1
+ 2de:	71 05       	cpc	r23, r1
+ 2e0:	19 f4       	brne	.+6      	; 0x2e8 <motorControl+0x2e>
+ 2e2:	80 e0       	ldi	r24, 0x00	; 0
+ 2e4:	98 e0       	ldi	r25, 0x08	; 8
+ 2e6:	03 c0       	rjmp	.+6      	; 0x2ee <motorControl+0x34>
+ 2e8:	cb 01       	movw	r24, r22
+ 2ea:	80 50       	subi	r24, 0x00	; 0
+ 2ec:	98 4f       	sbci	r25, 0xF8	; 248
+ 2ee:	62 2f       	mov	r22, r18
+ 2f0:	0e 94 41 01 	call	0x282	; 0x282 <dacControl>
+ 2f4:	08 95       	ret
+
+000002f6 <setRightMotorReverse>:
+ 2f6:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 2fa:	18 16       	cp	r1, r24
+ 2fc:	19 06       	cpc	r1, r25
+ 2fe:	dc f7       	brge	.-10     	; 0x2f6 <setRightMotorReverse>
+ 300:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 304:	90 e0       	ldi	r25, 0x00	; 0
+ 306:	26 ef       	ldi	r18, 0xF6	; 246
+ 308:	3f ef       	ldi	r19, 0xFF	; 255
+ 30a:	82 9f       	mul	r24, r18
+ 30c:	b0 01       	movw	r22, r0
+ 30e:	83 9f       	mul	r24, r19
+ 310:	70 0d       	add	r23, r0
+ 312:	92 9f       	mul	r25, r18
+ 314:	70 0d       	add	r23, r0
+ 316:	11 24       	eor	r1, r1
+ 318:	81 e0       	ldi	r24, 0x01	; 1
+ 31a:	0e 94 5d 01 	call	0x2ba	; 0x2ba <motorControl>
+ 31e:	08 95       	ret
+
+00000320 <setRightMotorForward>:
+ 320:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 324:	18 16       	cp	r1, r24
+ 326:	19 06       	cpc	r1, r25
+ 328:	dc f7       	brge	.-10     	; 0x320 <setRightMotorForward>
+ 32a:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 32e:	9a e0       	ldi	r25, 0x0A	; 10
+ 330:	89 9f       	mul	r24, r25
+ 332:	c0 01       	movw	r24, r0
+ 334:	11 24       	eor	r1, r1
+ 336:	bc 01       	movw	r22, r24
+ 338:	81 e0       	ldi	r24, 0x01	; 1
+ 33a:	0e 94 5d 01 	call	0x2ba	; 0x2ba <motorControl>
+ 33e:	08 95       	ret
+
+00000340 <setLeftMotorReverse>:
+ 340:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 344:	18 16       	cp	r1, r24
+ 346:	19 06       	cpc	r1, r25
+ 348:	dc f7       	brge	.-10     	; 0x340 <setLeftMotorReverse>
+ 34a:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 34e:	90 e0       	ldi	r25, 0x00	; 0
+ 350:	26 ef       	ldi	r18, 0xF6	; 246
+ 352:	3f ef       	ldi	r19, 0xFF	; 255
+ 354:	82 9f       	mul	r24, r18
+ 356:	b0 01       	movw	r22, r0
+ 358:	83 9f       	mul	r24, r19
+ 35a:	70 0d       	add	r23, r0
+ 35c:	92 9f       	mul	r25, r18
+ 35e:	70 0d       	add	r23, r0
+ 360:	11 24       	eor	r1, r1
+ 362:	80 e0       	ldi	r24, 0x00	; 0
+ 364:	0e 94 5d 01 	call	0x2ba	; 0x2ba <motorControl>
+ 368:	08 95       	ret
+
+0000036a <setLeftMotorForward>:
+ 36a:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 36e:	18 16       	cp	r1, r24
+ 370:	19 06       	cpc	r1, r25
+ 372:	dc f7       	brge	.-10     	; 0x36a <setLeftMotorForward>
+ 374:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 378:	9a e0       	ldi	r25, 0x0A	; 10
+ 37a:	89 9f       	mul	r24, r25
+ 37c:	c0 01       	movw	r24, r0
+ 37e:	11 24       	eor	r1, r1
+ 380:	bc 01       	movw	r22, r24
+ 382:	80 e0       	ldi	r24, 0x00	; 0
+ 384:	0e 94 5d 01 	call	0x2ba	; 0x2ba <motorControl>
+ 388:	08 95       	ret
+
+0000038a <InitializeInputPins>:
+ 38a:	17 b8       	out	0x07, r1	; 7
+ 38c:	11 b8       	out	0x01, r1	; 1
+ 38e:	8f ef       	ldi	r24, 0xFF	; 255
+ 390:	8a b9       	out	0x0a, r24	; 10
+ 392:	08 95       	ret
+
+00000394 <setDDR>:
+ 394:	0f 93       	push	r16
+ 396:	1f 93       	push	r17
+ 398:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 39c:	03 97       	sbiw	r24, 0x03	; 3
+ 39e:	e4 f3       	brlt	.-8      	; 0x398 <setDDR+0x4>
+ 3a0:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 3a4:	08 2f       	mov	r16, r24
+ 3a6:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 3aa:	18 2f       	mov	r17, r24
+ 3ac:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 3b0:	11 34       	cpi	r17, 0x41	; 65
+ 3b2:	c9 f4       	brne	.+50     	; 0x3e6 <setDDR+0x52>
+ 3b4:	81 30       	cpi	r24, 0x01	; 1
+ 3b6:	59 f4       	brne	.+22     	; 0x3ce <setDDR+0x3a>
+ 3b8:	21 b1       	in	r18, 0x01	; 1
+ 3ba:	81 e0       	ldi	r24, 0x01	; 1
+ 3bc:	90 e0       	ldi	r25, 0x00	; 0
+ 3be:	02 c0       	rjmp	.+4      	; 0x3c4 <setDDR+0x30>
+ 3c0:	88 0f       	add	r24, r24
+ 3c2:	99 1f       	adc	r25, r25
+ 3c4:	0a 95       	dec	r16
+ 3c6:	e2 f7       	brpl	.-8      	; 0x3c0 <setDDR+0x2c>
+ 3c8:	28 2b       	or	r18, r24
+ 3ca:	21 b9       	out	0x01, r18	; 1
+ 3cc:	5c c0       	rjmp	.+184    	; 0x486 <setDDR+0xf2>
+ 3ce:	21 b1       	in	r18, 0x01	; 1
+ 3d0:	81 e0       	ldi	r24, 0x01	; 1
+ 3d2:	90 e0       	ldi	r25, 0x00	; 0
+ 3d4:	02 c0       	rjmp	.+4      	; 0x3da <setDDR+0x46>
+ 3d6:	88 0f       	add	r24, r24
+ 3d8:	99 1f       	adc	r25, r25
+ 3da:	0a 95       	dec	r16
+ 3dc:	e2 f7       	brpl	.-8      	; 0x3d6 <setDDR+0x42>
+ 3de:	80 95       	com	r24
+ 3e0:	82 23       	and	r24, r18
+ 3e2:	81 b9       	out	0x01, r24	; 1
+ 3e4:	50 c0       	rjmp	.+160    	; 0x486 <setDDR+0xf2>
+ 3e6:	12 34       	cpi	r17, 0x42	; 66
+ 3e8:	c9 f4       	brne	.+50     	; 0x41c <setDDR+0x88>
+ 3ea:	81 30       	cpi	r24, 0x01	; 1
+ 3ec:	59 f4       	brne	.+22     	; 0x404 <setDDR+0x70>
+ 3ee:	24 b1       	in	r18, 0x04	; 4
+ 3f0:	81 e0       	ldi	r24, 0x01	; 1
+ 3f2:	90 e0       	ldi	r25, 0x00	; 0
+ 3f4:	02 c0       	rjmp	.+4      	; 0x3fa <setDDR+0x66>
+ 3f6:	88 0f       	add	r24, r24
+ 3f8:	99 1f       	adc	r25, r25
+ 3fa:	0a 95       	dec	r16
+ 3fc:	e2 f7       	brpl	.-8      	; 0x3f6 <setDDR+0x62>
+ 3fe:	28 2b       	or	r18, r24
+ 400:	24 b9       	out	0x04, r18	; 4
+ 402:	41 c0       	rjmp	.+130    	; 0x486 <setDDR+0xf2>
+ 404:	24 b1       	in	r18, 0x04	; 4
+ 406:	81 e0       	ldi	r24, 0x01	; 1
+ 408:	90 e0       	ldi	r25, 0x00	; 0
+ 40a:	02 c0       	rjmp	.+4      	; 0x410 <setDDR+0x7c>
+ 40c:	88 0f       	add	r24, r24
+ 40e:	99 1f       	adc	r25, r25
+ 410:	0a 95       	dec	r16
+ 412:	e2 f7       	brpl	.-8      	; 0x40c <setDDR+0x78>
+ 414:	80 95       	com	r24
+ 416:	82 23       	and	r24, r18
+ 418:	84 b9       	out	0x04, r24	; 4
+ 41a:	35 c0       	rjmp	.+106    	; 0x486 <setDDR+0xf2>
+ 41c:	13 34       	cpi	r17, 0x43	; 67
+ 41e:	c9 f4       	brne	.+50     	; 0x452 <setDDR+0xbe>
+ 420:	81 30       	cpi	r24, 0x01	; 1
+ 422:	59 f4       	brne	.+22     	; 0x43a <setDDR+0xa6>
+ 424:	27 b1       	in	r18, 0x07	; 7
+ 426:	81 e0       	ldi	r24, 0x01	; 1
+ 428:	90 e0       	ldi	r25, 0x00	; 0
+ 42a:	02 c0       	rjmp	.+4      	; 0x430 <setDDR+0x9c>
+ 42c:	88 0f       	add	r24, r24
+ 42e:	99 1f       	adc	r25, r25
+ 430:	0a 95       	dec	r16
+ 432:	e2 f7       	brpl	.-8      	; 0x42c <setDDR+0x98>
+ 434:	28 2b       	or	r18, r24
+ 436:	27 b9       	out	0x07, r18	; 7
+ 438:	26 c0       	rjmp	.+76     	; 0x486 <setDDR+0xf2>
+ 43a:	27 b1       	in	r18, 0x07	; 7
+ 43c:	81 e0       	ldi	r24, 0x01	; 1
+ 43e:	90 e0       	ldi	r25, 0x00	; 0
+ 440:	02 c0       	rjmp	.+4      	; 0x446 <setDDR+0xb2>
+ 442:	88 0f       	add	r24, r24
+ 444:	99 1f       	adc	r25, r25
+ 446:	0a 95       	dec	r16
+ 448:	e2 f7       	brpl	.-8      	; 0x442 <setDDR+0xae>
+ 44a:	80 95       	com	r24
+ 44c:	82 23       	and	r24, r18
+ 44e:	87 b9       	out	0x07, r24	; 7
+ 450:	1a c0       	rjmp	.+52     	; 0x486 <setDDR+0xf2>
+ 452:	14 34       	cpi	r17, 0x44	; 68
+ 454:	c1 f4       	brne	.+48     	; 0x486 <setDDR+0xf2>
+ 456:	81 30       	cpi	r24, 0x01	; 1
+ 458:	59 f4       	brne	.+22     	; 0x470 <setDDR+0xdc>
+ 45a:	2a b1       	in	r18, 0x0a	; 10
+ 45c:	81 e0       	ldi	r24, 0x01	; 1
+ 45e:	90 e0       	ldi	r25, 0x00	; 0
+ 460:	02 c0       	rjmp	.+4      	; 0x466 <setDDR+0xd2>
+ 462:	88 0f       	add	r24, r24
+ 464:	99 1f       	adc	r25, r25
+ 466:	0a 95       	dec	r16
+ 468:	e2 f7       	brpl	.-8      	; 0x462 <setDDR+0xce>
+ 46a:	28 2b       	or	r18, r24
+ 46c:	2a b9       	out	0x0a, r18	; 10
+ 46e:	0b c0       	rjmp	.+22     	; 0x486 <setDDR+0xf2>
+ 470:	2a b1       	in	r18, 0x0a	; 10
+ 472:	81 e0       	ldi	r24, 0x01	; 1
+ 474:	90 e0       	ldi	r25, 0x00	; 0
+ 476:	02 c0       	rjmp	.+4      	; 0x47c <setDDR+0xe8>
+ 478:	88 0f       	add	r24, r24
+ 47a:	99 1f       	adc	r25, r25
+ 47c:	0a 95       	dec	r16
+ 47e:	e2 f7       	brpl	.-8      	; 0x478 <setDDR+0xe4>
+ 480:	80 95       	com	r24
+ 482:	82 23       	and	r24, r18
+ 484:	8a b9       	out	0x0a, r24	; 10
+ 486:	1f 91       	pop	r17
+ 488:	0f 91       	pop	r16
+ 48a:	08 95       	ret
+
+0000048c <requestPinValue>:
+ 48c:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 490:	18 16       	cp	r1, r24
+ 492:	19 06       	cpc	r1, r25
+ 494:	dc f7       	brge	.-10     	; 0x48c <requestPinValue>
+ 496:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 49a:	26 b1       	in	r18, 0x06	; 6
+ 49c:	30 e0       	ldi	r19, 0x00	; 0
+ 49e:	02 c0       	rjmp	.+4      	; 0x4a4 <requestPinValue+0x18>
+ 4a0:	35 95       	asr	r19
+ 4a2:	27 95       	ror	r18
+ 4a4:	8a 95       	dec	r24
+ 4a6:	e2 f7       	brpl	.-8      	; 0x4a0 <requestPinValue+0x14>
+ 4a8:	82 2f       	mov	r24, r18
+ 4aa:	81 70       	andi	r24, 0x01	; 1
+ 4ac:	0e 94 3c 03 	call	0x678	; 0x678 <serialTx>
+ 4b0:	08 95       	ret
+
+000004b2 <initializePWM>:
+ 4b2:	82 ea       	ldi	r24, 0xA2	; 162
+ 4b4:	80 93 80 00 	sts	0x0080, r24
+ 4b8:	8a e1       	ldi	r24, 0x1A	; 26
+ 4ba:	80 93 81 00 	sts	0x0081, r24
+ 4be:	80 e2       	ldi	r24, 0x20	; 32
+ 4c0:	9e e4       	ldi	r25, 0x4E	; 78
+ 4c2:	90 93 87 00 	sts	0x0087, r25
+ 4c6:	80 93 86 00 	sts	0x0086, r24
+ 4ca:	8a b1       	in	r24, 0x0a	; 10
+ 4cc:	80 63       	ori	r24, 0x30	; 48
+ 4ce:	8a b9       	out	0x0a, r24	; 10
+ 4d0:	83 ec       	ldi	r24, 0xC3	; 195
+ 4d2:	95 e0       	ldi	r25, 0x05	; 5
+ 4d4:	90 93 89 00 	sts	0x0089, r25
+ 4d8:	80 93 88 00 	sts	0x0088, r24
+ 4dc:	08 95       	ret
+
+000004de <setDutyCycle>:
+ 4de:	90 93 89 00 	sts	0x0089, r25
+ 4e2:	80 93 88 00 	sts	0x0088, r24
+ 4e6:	08 95       	ret
+
+000004e8 <requestSetServo>:
+ 4e8:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 4ec:	18 16       	cp	r1, r24
+ 4ee:	19 06       	cpc	r1, r25
+ 4f0:	dc f7       	brge	.-10     	; 0x4e8 <requestSetServo>
+ 4f2:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 4f6:	9a e0       	ldi	r25, 0x0A	; 10
+ 4f8:	89 9f       	mul	r24, r25
+ 4fa:	c0 01       	movw	r24, r0
+ 4fc:	11 24       	eor	r1, r1
+ 4fe:	90 93 89 00 	sts	0x0089, r25
+ 502:	80 93 88 00 	sts	0x0088, r24
+ 506:	08 95       	ret
+
+00000508 <checkStepperBumper>:
+ 508:	86 b1       	in	r24, 0x06	; 6
+ 50a:	82 95       	swap	r24
+ 50c:	86 95       	lsr	r24
+ 50e:	87 70       	andi	r24, 0x07	; 7
+ 510:	81 70       	andi	r24, 0x01	; 1
+ 512:	08 95       	ret
+
+00000514 <setStepperDirection>:
+ 514:	88 23       	and	r24, r24
+ 516:	21 f4       	brne	.+8      	; 0x520 <setStepperDirection+0xc>
+ 518:	46 98       	cbi	0x08, 6	; 8
+ 51a:	10 92 19 01 	sts	0x0119, r1
+ 51e:	08 95       	ret
+ 520:	81 30       	cpi	r24, 0x01	; 1
+ 522:	19 f4       	brne	.+6      	; 0x52a <setStepperDirection+0x16>
+ 524:	46 9a       	sbi	0x08, 6	; 8
+ 526:	80 93 19 01 	sts	0x0119, r24
+ 52a:	08 95       	ret
+
+0000052c <step>:
+ 52c:	88 b1       	in	r24, 0x08	; 8
+ 52e:	80 58       	subi	r24, 0x80	; 128
+ 530:	88 b9       	out	0x08, r24	; 8
+ 532:	80 ed       	ldi	r24, 0xD0	; 208
+ 534:	97 e0       	ldi	r25, 0x07	; 7
+ 536:	01 97       	sbiw	r24, 0x01	; 1
+ 538:	f1 f7       	brne	.-4      	; 0x536 <step+0xa>
+ 53a:	88 b1       	in	r24, 0x08	; 8
+ 53c:	80 58       	subi	r24, 0x80	; 128
+ 53e:	88 b9       	out	0x08, r24	; 8
+ 540:	80 91 19 01 	lds	r24, 0x0119
+ 544:	81 30       	cpi	r24, 0x01	; 1
+ 546:	49 f4       	brne	.+18     	; 0x55a <step+0x2e>
+ 548:	80 91 10 01 	lds	r24, 0x0110
+ 54c:	90 91 11 01 	lds	r25, 0x0111
+ 550:	01 97       	sbiw	r24, 0x01	; 1
+ 552:	90 93 11 01 	sts	0x0111, r25
+ 556:	80 93 10 01 	sts	0x0110, r24
+ 55a:	80 91 19 01 	lds	r24, 0x0119
+ 55e:	88 23       	and	r24, r24
+ 560:	49 f4       	brne	.+18     	; 0x574 <step+0x48>
+ 562:	80 91 10 01 	lds	r24, 0x0110
+ 566:	90 91 11 01 	lds	r25, 0x0111
+ 56a:	01 96       	adiw	r24, 0x01	; 1
+ 56c:	90 93 11 01 	sts	0x0111, r25
+ 570:	80 93 10 01 	sts	0x0110, r24
+ 574:	08 95       	ret
+
+00000576 <homeStepper>:
+ 576:	46 9a       	sbi	0x08, 6	; 8
+ 578:	81 e0       	ldi	r24, 0x01	; 1
+ 57a:	80 93 19 01 	sts	0x0119, r24
+ 57e:	02 c0       	rjmp	.+4      	; 0x584 <homeStepper+0xe>
+ 580:	0e 94 96 02 	call	0x52c	; 0x52c <step>
+ 584:	35 99       	sbic	0x06, 5	; 6
+ 586:	fc cf       	rjmp	.-8      	; 0x580 <homeStepper+0xa>
+ 588:	10 92 11 01 	sts	0x0111, r1
+ 58c:	10 92 10 01 	sts	0x0110, r1
+ 590:	08 95       	ret
+
+00000592 <InitializeStepper>:
+ 592:	87 b1       	in	r24, 0x07	; 7
+ 594:	80 6c       	ori	r24, 0xC0	; 192
+ 596:	87 b9       	out	0x07, r24	; 7
+ 598:	0e 94 bb 02 	call	0x576	; 0x576 <homeStepper>
+ 59c:	08 95       	ret
+
+0000059e <moveStepper>:
+ 59e:	20 91 10 01 	lds	r18, 0x0110
+ 5a2:	30 91 11 01 	lds	r19, 0x0111
+ 5a6:	80 91 12 01 	lds	r24, 0x0112
+ 5aa:	90 91 13 01 	lds	r25, 0x0113
+ 5ae:	28 17       	cp	r18, r24
+ 5b0:	39 07       	cpc	r19, r25
+ 5b2:	b1 f0       	breq	.+44     	; 0x5e0 <moveStepper+0x42>
+ 5b4:	80 91 10 01 	lds	r24, 0x0110
+ 5b8:	90 91 11 01 	lds	r25, 0x0111
+ 5bc:	20 91 12 01 	lds	r18, 0x0112
+ 5c0:	30 91 13 01 	lds	r19, 0x0113
+ 5c4:	82 1b       	sub	r24, r18
+ 5c6:	93 0b       	sbc	r25, r19
+ 5c8:	97 ff       	sbrs	r25, 7
+ 5ca:	04 c0       	rjmp	.+8      	; 0x5d4 <moveStepper+0x36>
+ 5cc:	46 98       	cbi	0x08, 6	; 8
+ 5ce:	10 92 19 01 	sts	0x0119, r1
+ 5d2:	04 c0       	rjmp	.+8      	; 0x5dc <moveStepper+0x3e>
+ 5d4:	46 9a       	sbi	0x08, 6	; 8
+ 5d6:	81 e0       	ldi	r24, 0x01	; 1
+ 5d8:	80 93 19 01 	sts	0x0119, r24
+ 5dc:	0e 94 96 02 	call	0x52c	; 0x52c <step>
+ 5e0:	08 95       	ret
+
+000005e2 <requestSendStepperTo>:
+ 5e2:	80 e0       	ldi	r24, 0x00	; 0
+ 5e4:	91 e0       	ldi	r25, 0x01	; 1
+ 5e6:	0e 94 4e 03 	call	0x69c	; 0x69c <serialTxString>
+ 5ea:	8b e9       	ldi	r24, 0x9B	; 155
+ 5ec:	91 e0       	ldi	r25, 0x01	; 1
+ 5ee:	90 93 13 01 	sts	0x0113, r25
+ 5f2:	80 93 12 01 	sts	0x0112, r24
+ 5f6:	0e 94 b1 03 	call	0x762	; 0x762 <commandsInQueue>
+ 5fa:	18 16       	cp	r1, r24
+ 5fc:	19 06       	cpc	r1, r25
+ 5fe:	dc f7       	brge	.-10     	; 0x5f6 <requestSendStepperTo+0x14>
+ 600:	0e 94 82 03 	call	0x704	; 0x704 <readCommand>
+ 604:	84 30       	cpi	r24, 0x04	; 4
+ 606:	b9 f7       	brne	.-18     	; 0x5f6 <requestSendStepperTo+0x14>
+ 608:	82 e3       	ldi	r24, 0x32	; 50
+ 60a:	90 e0       	ldi	r25, 0x00	; 0
+ 60c:	90 93 13 01 	sts	0x0113, r25
+ 610:	80 93 12 01 	sts	0x0112, r24
+ 614:	08 95       	ret
+
+00000616 <InitializeTimer2>:
+ 616:	87 e0       	ldi	r24, 0x07	; 7
+ 618:	80 93 b1 00 	sts	0x00B1, r24
+ 61c:	81 e0       	ldi	r24, 0x01	; 1
+ 61e:	80 93 70 00 	sts	0x0070, r24
+ 622:	08 95       	ret
+
+00000624 <__vector_11>:
+ 624:	1f 92       	push	r1
+ 626:	0f 92       	push	r0
+ 628:	0f b6       	in	r0, 0x3f	; 63
+ 62a:	0f 92       	push	r0
+ 62c:	11 24       	eor	r1, r1
+ 62e:	0f 90       	pop	r0
+ 630:	0f be       	out	0x3f, r0	; 63
+ 632:	0f 90       	pop	r0
+ 634:	1f 90       	pop	r1
+ 636:	18 95       	reti
+
+00000638 <main>:
+ 638:	0e 94 19 01 	call	0x232	; 0x232 <InitializeHardware>
+ 63c:	06 c0       	rjmp	.+12     	; 0x64a <main+0x12>
+ 63e:	0e 94 a6 03 	call	0x74c	; 0x74c <isThereACommand>
+ 642:	88 23       	and	r24, r24
+ 644:	11 f0       	breq	.+4      	; 0x64a <main+0x12>
+ 646:	0e 94 ba 00 	call	0x174	; 0x174 <commandMenu>
+ 64a:	80 91 0e 01 	lds	r24, 0x010E
+ 64e:	88 23       	and	r24, r24
+ 650:	b1 f3       	breq	.-20     	; 0x63e <main+0x6>
+ 652:	0e 94 a6 03 	call	0x74c	; 0x74c <isThereACommand>
+ 656:	88 23       	and	r24, r24
+ 658:	e1 f3       	breq	.-8      	; 0x652 <main+0x1a>
+ 65a:	0e 94 ba 00 	call	0x174	; 0x174 <commandMenu>
+ 65e:	f9 cf       	rjmp	.-14     	; 0x652 <main+0x1a>
+
+00000660 <InitializeSerial>:
+ 660:	10 92 c5 00 	sts	0x00C5, r1
+ 664:	89 e1       	ldi	r24, 0x19	; 25
+ 666:	80 93 c4 00 	sts	0x00C4, r24
+ 66a:	88 e9       	ldi	r24, 0x98	; 152
+ 66c:	80 93 c1 00 	sts	0x00C1, r24
+ 670:	8e e0       	ldi	r24, 0x0E	; 14
+ 672:	80 93 c2 00 	sts	0x00C2, r24
+ 676:	08 95       	ret
+
+00000678 <serialTx>:
+ 678:	98 2f       	mov	r25, r24
+ 67a:	80 91 c0 00 	lds	r24, 0x00C0
+ 67e:	85 ff       	sbrs	r24, 5
+ 680:	fc cf       	rjmp	.-8      	; 0x67a <serialTx+0x2>
+ 682:	90 93 c6 00 	sts	0x00C6, r25
+ 686:	08 95       	ret
+
+00000688 <serialRx>:
+ 688:	90 91 c6 00 	lds	r25, 0x00C6
+ 68c:	80 91 c0 00 	lds	r24, 0x00C0
+ 690:	85 ff       	sbrs	r24, 5
+ 692:	fc cf       	rjmp	.-8      	; 0x68c <serialRx+0x4>
+ 694:	90 93 c6 00 	sts	0x00C6, r25
+ 698:	89 2f       	mov	r24, r25
+ 69a:	08 95       	ret
+
+0000069c <serialTxString>:
+ 69c:	fc 01       	movw	r30, r24
+ 69e:	07 c0       	rjmp	.+14     	; 0x6ae <serialTxString+0x12>
+ 6a0:	80 91 c0 00 	lds	r24, 0x00C0
+ 6a4:	85 ff       	sbrs	r24, 5
+ 6a6:	fc cf       	rjmp	.-8      	; 0x6a0 <serialTxString+0x4>
+ 6a8:	90 93 c6 00 	sts	0x00C6, r25
+ 6ac:	31 96       	adiw	r30, 0x01	; 1
+ 6ae:	90 81       	ld	r25, Z
+ 6b0:	99 23       	and	r25, r25
+ 6b2:	b1 f7       	brne	.-20     	; 0x6a0 <serialTxString+0x4>
+ 6b4:	08 95       	ret
+
+000006b6 <addToBuffer>:
+ 6b6:	28 2f       	mov	r18, r24
+ 6b8:	80 91 14 01 	lds	r24, 0x0114
+ 6bc:	90 91 15 01 	lds	r25, 0x0115
+ 6c0:	01 96       	adiw	r24, 0x01	; 1
+ 6c2:	90 93 15 01 	sts	0x0115, r25
+ 6c6:	80 93 14 01 	sts	0x0114, r24
+ 6ca:	80 91 16 01 	lds	r24, 0x0116
+ 6ce:	90 91 17 01 	lds	r25, 0x0117
+ 6d2:	01 96       	adiw	r24, 0x01	; 1
+ 6d4:	90 93 17 01 	sts	0x0117, r25
+ 6d8:	80 93 16 01 	sts	0x0116, r24
+ 6dc:	80 91 14 01 	lds	r24, 0x0114
+ 6e0:	90 91 15 01 	lds	r25, 0x0115
+ 6e4:	8f 3f       	cpi	r24, 0xFF	; 255
+ 6e6:	91 05       	cpc	r25, r1
+ 6e8:	29 f0       	breq	.+10     	; 0x6f4 <addToBuffer+0x3e>
+ 6ea:	24 f0       	brlt	.+8      	; 0x6f4 <addToBuffer+0x3e>
+ 6ec:	10 92 15 01 	sts	0x0115, r1
+ 6f0:	10 92 14 01 	sts	0x0114, r1
+ 6f4:	e0 91 14 01 	lds	r30, 0x0114
+ 6f8:	f0 91 15 01 	lds	r31, 0x0115
+ 6fc:	e6 5e       	subi	r30, 0xE6	; 230
+ 6fe:	fe 4f       	sbci	r31, 0xFE	; 254
+ 700:	20 83       	st	Z, r18
+ 702:	08 95       	ret
+
+00000704 <readCommand>:
+ 704:	e0 91 14 01 	lds	r30, 0x0114
+ 708:	f0 91 15 01 	lds	r31, 0x0115
+ 70c:	e6 5e       	subi	r30, 0xE6	; 230
+ 70e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 710:	e0 81       	ld	r30, Z
+ 712:	80 91 14 01 	lds	r24, 0x0114
+ 716:	90 91 15 01 	lds	r25, 0x0115
+ 71a:	89 2b       	or	r24, r25
+ 71c:	19 f4       	brne	.+6      	; 0x724 <readCommand+0x20>
+ 71e:	8f ef       	ldi	r24, 0xFF	; 255
+ 720:	90 e0       	ldi	r25, 0x00	; 0
+ 722:	05 c0       	rjmp	.+10     	; 0x72e <readCommand+0x2a>
+ 724:	80 91 14 01 	lds	r24, 0x0114
+ 728:	90 91 15 01 	lds	r25, 0x0115
+ 72c:	01 97       	sbiw	r24, 0x01	; 1
+ 72e:	90 93 15 01 	sts	0x0115, r25
+ 732:	80 93 14 01 	sts	0x0114, r24
+ 736:	80 91 16 01 	lds	r24, 0x0116
+ 73a:	90 91 17 01 	lds	r25, 0x0117
+ 73e:	01 97       	sbiw	r24, 0x01	; 1
+ 740:	90 93 17 01 	sts	0x0117, r25
+ 744:	80 93 16 01 	sts	0x0116, r24
+ 748:	8e 2f       	mov	r24, r30
+ 74a:	08 95       	ret
+
+0000074c <isThereACommand>:
+ 74c:	80 91 16 01 	lds	r24, 0x0116
+ 750:	90 91 17 01 	lds	r25, 0x0117
+ 754:	20 e0       	ldi	r18, 0x00	; 0
+ 756:	18 16       	cp	r1, r24
+ 758:	19 06       	cpc	r1, r25
+ 75a:	0c f4       	brge	.+2      	; 0x75e <isThereACommand+0x12>
+ 75c:	21 e0       	ldi	r18, 0x01	; 1
+ 75e:	82 2f       	mov	r24, r18
+ 760:	08 95       	ret
+
+00000762 <commandsInQueue>:
+ 762:	20 91 16 01 	lds	r18, 0x0116
+ 766:	30 91 17 01 	lds	r19, 0x0117
+ 76a:	c9 01       	movw	r24, r18
+ 76c:	08 95       	ret
+
+0000076e <__vector_20>:
+ 76e:	1f 92       	push	r1
+ 770:	0f 92       	push	r0
+ 772:	0f b6       	in	r0, 0x3f	; 63
+ 774:	0f 92       	push	r0
+ 776:	11 24       	eor	r1, r1
+ 778:	2f 93       	push	r18
+ 77a:	8f 93       	push	r24
+ 77c:	9f 93       	push	r25
+ 77e:	ef 93       	push	r30
+ 780:	ff 93       	push	r31
+ 782:	20 91 c6 00 	lds	r18, 0x00C6
+ 786:	80 91 14 01 	lds	r24, 0x0114
+ 78a:	90 91 15 01 	lds	r25, 0x0115
+ 78e:	01 96       	adiw	r24, 0x01	; 1
+ 790:	90 93 15 01 	sts	0x0115, r25
+ 794:	80 93 14 01 	sts	0x0114, r24
+ 798:	80 91 16 01 	lds	r24, 0x0116
+ 79c:	90 91 17 01 	lds	r25, 0x0117
+ 7a0:	01 96       	adiw	r24, 0x01	; 1
+ 7a2:	90 93 17 01 	sts	0x0117, r25
+ 7a6:	80 93 16 01 	sts	0x0116, r24
+ 7aa:	80 91 14 01 	lds	r24, 0x0114
+ 7ae:	90 91 15 01 	lds	r25, 0x0115
+ 7b2:	8f 3f       	cpi	r24, 0xFF	; 255
+ 7b4:	91 05       	cpc	r25, r1
+ 7b6:	29 f0       	breq	.+10     	; 0x7c2 <__vector_20+0x54>
+ 7b8:	24 f0       	brlt	.+8      	; 0x7c2 <__vector_20+0x54>
+ 7ba:	10 92 15 01 	sts	0x0115, r1
+ 7be:	10 92 14 01 	sts	0x0114, r1
+ 7c2:	e0 91 14 01 	lds	r30, 0x0114
+ 7c6:	f0 91 15 01 	lds	r31, 0x0115
+ 7ca:	e6 5e       	subi	r30, 0xE6	; 230
+ 7cc:	fe 4f       	sbci	r31, 0xFE	; 254
+ 7ce:	20 83       	st	Z, r18
+ 7d0:	ff 91       	pop	r31
+ 7d2:	ef 91       	pop	r30
+ 7d4:	9f 91       	pop	r25
+ 7d6:	8f 91       	pop	r24
+ 7d8:	2f 91       	pop	r18
+ 7da:	0f 90       	pop	r0
+ 7dc:	0f be       	out	0x3f, r0	; 63
+ 7de:	0f 90       	pop	r0
+ 7e0:	1f 90       	pop	r1
+ 7e2:	18 95       	reti
+
+000007e4 <_exit>:
+ 7e4:	f8 94       	cli
+
+000007e6 <__stop_program>:
+ 7e6:	ff cf       	rjmp	.-2      	; 0x7e6 <__stop_program>

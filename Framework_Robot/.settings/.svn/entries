@@ -1,0 +1,41 @@
+8
+
+dir
+6
+https://sourceforge.wpi.edu/svn/repos/rbeframework/Framework_Robot/.settings
+https://sourceforge.wpi.edu/svn/repos/rbeframework
+
+
+
+2009-04-02T17:39:38.892431Z
+4
+keithc
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2c13b6bb-6c62-4243-8573-f8a6b97502d6
+
+de.innot.avreclipse.core.prefs
+file
+9
+
+
+
+2009-04-04T16:39:41.000000Z
+635bef520071243bc24c92494c2db978
+2009-04-08T17:22:14.856220Z
+9
+keithc
+has-props
+

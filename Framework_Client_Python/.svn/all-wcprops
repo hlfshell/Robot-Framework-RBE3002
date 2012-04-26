@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/repos/rbeframework/!svn/ver/5/Framework_Client_Python
+END
+TurretClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/repos/rbeframework/!svn/ver/15/Framework_Client_Python/TurretClass.py
+END
+RobotClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/repos/rbeframework/!svn/ver/17/Framework_Client_Python/RobotClass.py
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/repos/rbeframework/!svn/ver/4/Framework_Client_Python/.project
+END
+ServoClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/repos/rbeframework/!svn/ver/14/Framework_Client_Python/ServoClass.py
+END
+Commands.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/repos/rbeframework/!svn/ver/17/Framework_Client_Python/Commands.py
+END
+StepperClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/repos/rbeframework/!svn/ver/5/Framework_Client_Python/StepperClass.py
+END
+ActuatorClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/repos/rbeframework/!svn/ver/5/Framework_Client_Python/ActuatorClass.py
+END
+SensorClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/repos/rbeframework/!svn/ver/4/Framework_Client_Python/SensorClass.py
+END
+ClientSetup.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/repos/rbeframework/!svn/ver/17/Framework_Client_Python/ClientSetup.py
+END
+MotorClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/repos/rbeframework/!svn/ver/17/Framework_Client_Python/MotorClass.py
+END
+BumperClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/repos/rbeframework/!svn/ver/5/Framework_Client_Python/BumperClass.py
+END
+InfraredClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/repos/rbeframework/!svn/ver/17/Framework_Client_Python/InfraredClass.py
+END
+PotentiometerClass.py
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/repos/rbeframework/!svn/ver/4/Framework_Client_Python/PotentiometerClass.py
+END

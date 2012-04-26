@@ -1,0 +1,40 @@
+import serial, time
+from Commands import *
+from ActuatorClass import *
+from SensorClass import *
+from InfraredClass import *
+from ServoClass import *
+
+class Turret(Actuator, Sensor):
+
+	infrared = None
+	servo = None
+
+	def __init__(self, servoInstance, infraredInstance):
+		global setServoTo
+		self.infrared = infraredInstance
+		self.servo = servoInstance
+		
+
+	def pan(self):
+		direction = 1
+		if self.servo.Position > 90:
+			self.servo.moveTo(165)
+			direction = -1
+			b = range(165,15, -1)
+		else:
+			self.servo.moveTo(15)
+			direction = 1
+			b = range(15, 165, 1)
+		endResult = []
+		positionTemp = self.servo.Position
+		for i in b:
+			self.servo.moveTo(positionTemp + (direction * 2) )
+			endResult.append([self.servo.Position, self.infrared.grabData()])
+			time.sleep(.0025)
+			positionTemp = self.servo.Position
+		if direction == 1:
+			self.servo.moveTo(165)
+		else:
+			self.servo.moveTo(15)
+		return endResult

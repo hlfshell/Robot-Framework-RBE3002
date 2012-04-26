@@ -1,0 +1,459 @@
+Archive member included because of file (symbol)
+
+/usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o (exit)
+/usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_copy_data.o)
+                              ./ADC.o (__do_copy_data)
+/usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_clear_bss.o)
+                              ./ADC.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+IDNumber            0x1               ./ID.o
+commandBuffer       0x100             ./serial.o
+direction           0x1               ./StepperMotor.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+LOAD ./ADC.o
+LOAD ./Commands.o
+LOAD ./ID.o
+LOAD ./InitializeSystem.o
+LOAD ./MotorControl.o
+LOAD ./PinChange.o
+LOAD ./Servo.o
+LOAD ./StepperMotor.o
+LOAD ./Timer2.o
+LOAD ./main.o
+LOAD ./serial.o
+LOAD /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a
+LOAD /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/libc.a
+LOAD /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x7e8
+ *(.vectors)
+ .vectors       0x00000000       0x7c /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x0000007c                . = ALIGN (0x2)
+                0x0000007c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000007c        0x0 linker stubs
+ *(.trampolines*)
+                0x0000007c                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000007c                __ctors_start = .
+ *(.ctors)
+                0x0000007c                __ctors_end = .
+                0x0000007c                __dtors_start = .
+ *(.dtors)
+                0x0000007c                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000007c        0x0 /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+                0x0000007c                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000007c        0xc /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000088       0x16 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_copy_data.o)
+                0x00000088                __do_copy_data
+ .init4         0x0000009e       0x10 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x0000009e                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000ae        0x8 /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+ *(.init9)
+ *(.text)
+ .text          0x000000b6        0x4 /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+                0x000000b6                __vector_22
+                0x000000b6                __vector_28
+                0x000000b6                __vector_1
+                0x000000b6                __vector_24
+                0x000000b6                __vector_12
+                0x000000b6                __bad_interrupt
+                0x000000b6                __vector_6
+                0x000000b6                __vector_3
+                0x000000b6                __vector_23
+                0x000000b6                __vector_30
+                0x000000b6                __vector_25
+                0x000000b6                __vector_13
+                0x000000b6                __vector_17
+                0x000000b6                __vector_19
+                0x000000b6                __vector_7
+                0x000000b6                __vector_27
+                0x000000b6                __vector_5
+                0x000000b6                __vector_4
+                0x000000b6                __vector_9
+                0x000000b6                __vector_2
+                0x000000b6                __vector_21
+                0x000000b6                __vector_15
+                0x000000b6                __vector_29
+                0x000000b6                __vector_8
+                0x000000b6                __vector_26
+                0x000000b6                __vector_14
+                0x000000b6                __vector_10
+                0x000000b6                __vector_16
+                0x000000b6                __vector_18
+ .text          0x000000ba       0xba ./ADC.o
+                0x000000d2                get_adc
+                0x000000ba                InitializeA2D
+                0x00000114                requestADCchannel
+ .text          0x00000174       0x88 ./Commands.o
+                0x00000174                commandMenu
+ .text          0x000001fc       0x1e ./ID.o
+                0x00000206                setID
+                0x000001fc                requestID
+ .text          0x0000021a       0x46 ./InitializeSystem.o
+                0x00000232                InitializeHardware
+                0x0000021a                reset
+                0x0000021c                InitializeRobot
+ .text          0x00000260      0x12a ./MotorControl.o
+                0x00000260                SPIInit
+                0x000002f6                setRightMotorReverse
+                0x000002ba                motorControl
+                0x00000282                dacControl
+                0x00000320                setRightMotorForward
+                0x0000036a                setLeftMotorForward
+                0x00000340                setLeftMotorReverse
+                0x0000026c                SPITx
+ .text          0x0000038a      0x128 ./PinChange.o
+                0x0000038a                InitializeInputPins
+                0x0000048c                requestPinValue
+                0x00000394                setDDR
+ .text          0x000004b2       0x56 ./Servo.o
+                0x000004b2                initializePWM
+                0x000004e8                requestSetServo
+                0x000004de                setDutyCycle
+ .text          0x00000508      0x10e ./StepperMotor.o
+                0x00000592                InitializeStepper
+                0x00000576                homeStepper
+                0x00000508                checkStepperBumper
+                0x000005e2                requestSendStepperTo
+                0x0000052c                step
+                0x0000059e                moveStepper
+                0x00000514                setStepperDirection
+ .text          0x00000616       0x22 ./Timer2.o
+                0x00000624                __vector_11
+                0x00000616                InitializeTimer2
+ .text          0x00000638       0x28 ./main.o
+                0x00000638                main
+ .text          0x00000660      0x184 ./serial.o
+                0x00000704                readCommand
+                0x00000762                commandsInQueue
+                0x000006b6                addToBuffer
+                0x00000660                InitializeSerial
+                0x0000069c                serialTxString
+                0x00000688                serialRx
+                0x00000678                serialTx
+                0x0000074c                isThereACommand
+                0x0000076e                __vector_20
+ .text          0x000007e4        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_exit.o)
+ .text          0x000007e4        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_copy_data.o)
+ .text          0x000007e4        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x000007e4                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x000007e4        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x000007e4        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc   0x000007e4        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_clear_bss.o)
+                0x000007e4                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000007e4        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_exit.o)
+                0x000007e4                exit
+                0x000007e4                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000007e4        0x4 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_exit.o)
+ *(.fini0)
+                0x000007e8                _etext = .
+
+.data           0x00800100        0xe load address 0x000007e8
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+ .data          0x00800100        0x0 ./ADC.o
+ .data          0x00800100        0x0 ./Commands.o
+ .data          0x00800100        0x0 ./ID.o
+ .data          0x00800100        0x0 ./InitializeSystem.o
+ .data          0x00800100        0x0 ./MotorControl.o
+ .data          0x00800100        0x0 ./PinChange.o
+ .data          0x00800100        0x0 ./Servo.o
+ .data          0x00800100        0xd ./StepperMotor.o
+ .data          0x0080010d        0x0 ./Timer2.o
+ .data          0x0080010d        0x0 ./main.o
+ .data          0x0080010d        0x0 ./serial.o
+ .data          0x0080010d        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_exit.o)
+ .data          0x0080010d        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_copy_data.o)
+ .data          0x0080010d        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080010e                . = ALIGN (0x2)
+ *fill*         0x0080010d        0x1 00
+                0x0080010e                _edata = .
+                0x0080010e                PROVIDE (__data_end, .)
+
+.bss            0x0080010e      0x10c load address 0x000007f6
+                0x0080010e                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080010e        0x0 /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+ .bss           0x0080010e        0x0 ./ADC.o
+ .bss           0x0080010e        0x0 ./Commands.o
+ .bss           0x0080010e        0x0 ./ID.o
+ .bss           0x0080010e        0x2 ./InitializeSystem.o
+                0x0080010f                n
+                0x0080010e                INITIALIZED
+ .bss           0x00800110        0x0 ./MotorControl.o
+ .bss           0x00800110        0x0 ./PinChange.o
+ .bss           0x00800110        0x0 ./Servo.o
+ .bss           0x00800110        0x4 ./StepperMotor.o
+                0x00800112                positionDesired
+                0x00800110                positionCurrent
+ .bss           0x00800114        0x0 ./Timer2.o
+ .bss           0x00800114        0x0 ./main.o
+ .bss           0x00800114        0x4 ./serial.o
+                0x00800114                bufferStepThrough
+                0x00800116                commandCount
+ .bss           0x00800118        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_exit.o)
+ .bss           0x00800118        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_copy_data.o)
+ .bss           0x00800118        0x0 /usr/lib/gcc/avr/4.3.0/avr5/libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800118        0x1 ./ID.o
+                0x00800118                IDNumber
+ COMMON         0x00800119        0x1 ./StepperMotor.o
+                0x00800119                direction
+ COMMON         0x0080011a      0x100 ./serial.o
+                0x0080011a                commandBuffer
+                0x0080021a                PROVIDE (__bss_end, .)
+                0x000007e8                __data_load_start = LOADADDR (.data)
+                0x000007f6                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080021a        0x0
+                0x0080021a                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080021a                PROVIDE (__noinit_end, .)
+                0x0080021a                _end = .
+                0x0080021a                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x6b4
+ *(.stab)
+ .stab          0x00000000      0x6b4 /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+
+.stabstr        0x00000000       0x54
+ *(.stabstr)
+ .stabstr       0x00000000       0x54 /usr/lib/gcc/avr/4.3.0/../../../../avr/lib/avr5/crtm644p.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(Framework_Robot.Beta.elf elf32-avr)
+LOAD linker stubs
